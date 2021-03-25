@@ -28,3 +28,4 @@ hs_err_pid*
 /BusinessLogic/target/
 /Assembler/target/
 /GUI/nbproject/
+*~

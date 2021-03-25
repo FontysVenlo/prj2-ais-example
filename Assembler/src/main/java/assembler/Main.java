@@ -22,8 +22,8 @@ public class Main {
         PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation();
         BusinessLogicAPI businesslogicAPI = BusinessLogicImplementationProvider.getImplementation( persistenceAPI );
         
-        GUIApp app = new GUIApp();
-        app.startFrontEnd( businesslogicAPI );
+        GUIApp gui = new GUIApp( businesslogicAPI );
+        gui.show();
     }
     
 }

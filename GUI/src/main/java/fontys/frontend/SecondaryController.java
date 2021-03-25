@@ -5,8 +5,14 @@ import javafx.fxml.FXML;
 
 public class SecondaryController {
 
+    private GUIApp guiApp;
+
+    public SecondaryController(GUIApp guiApp) {
+        this.guiApp = guiApp;
+    }
+    
     @FXML
     private void switchToPrimary() throws IOException {
-        GUIApp.setRoot("primary");
+        guiApp.setRoot("primary");
     }
 }

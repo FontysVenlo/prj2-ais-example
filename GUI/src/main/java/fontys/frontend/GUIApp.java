@@ -8,14 +8,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.util.Callback;
 import businesslogic.BusinessLogicAPI;
+import javafx.application.Platform;
 
 /**
  * JavaFX App
  */
 public class GUIApp extends Application {
 
-    private static Scene scene;
-    private static BusinessLogicAPI businessLogicAPI;
+    private Scene scene;
+    private final BusinessLogicAPI businessLogicAPI;
+
+    public GUIApp(BusinessLogicAPI businessLogicAPI) {
+        this.businessLogicAPI = businessLogicAPI;
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -24,23 +29,33 @@ public class GUIApp extends Application {
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    BusinessLogicAPI getBusinessLogicAPI() {
+        return businessLogicAPI;
+    }
+
+    void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    private Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GUIApp.class.getResource(fxml + ".fxml"));
-        
-        fxmlLoader.setControllerFactory( controllerFactory );
-        
+
+        fxmlLoader.setControllerFactory(controllerFactory);
+
         return fxmlLoader.load();
     }
-    
-    private static final Callback<Class<?>, Object> controllerFactory = ( Class<?> c )
+
+    private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
             -> {
-        if ( c.getName().equals( "fontys.frontend.CustomerController" ) ) {
-            return new CustomerController( businessLogicAPI );
+
+        switch (c.getName()) {
+
+            case "fontys.frontend.CustomerController":
+                return new CustomerController(this);
+            case "fontys.frontend.SecondaryController":
+                return new SecondaryController(this);
         }
+        
         return null;
 
     };
@@ -48,11 +63,17 @@ public class GUIApp extends Application {
     public static void main(String[] args) {
         launch();
     }
-    
-    public GUIApp startFrontEnd(BusinessLogicAPI api){
-        businessLogicAPI = api;
-        launch();
-        return this;
+
+    public void show() {
+
+        Platform.startup(() -> {
+            Stage stage = new Stage();
+            try {
+                start(stage);
+            } catch (Exception ex) {
+                throw new IllegalStateException(ex);
+            }
+        });   
     }
 
 }

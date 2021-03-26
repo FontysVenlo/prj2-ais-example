@@ -1,24 +1,24 @@
 package fxtest;
 
 import java.io.IOException;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import java.time.LocalDate;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
-import static org.assertj.core.api.Assumptions.assumeThat;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
-import org.testfx.service.query.NodeQuery;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.SoftAssertions.*;
+import org.testfx.api.FxRobot;
 
 /**
  *
@@ -26,7 +26,7 @@ import org.testfx.service.query.NodeQuery;
  */
 @ExtendWith( ApplicationExtension.class )
 @TestMethodOrder( MethodOrderer.OrderAnnotation.class )
-public class CustomerControllerTest {
+public class CustomerControllerTest implements BusinessLogic {
 
     private Stage stage;
 
@@ -42,54 +42,63 @@ public class CustomerControllerTest {
         }
     }
 
-//    @BeforeEach
-//    void setup(){
-//        main= new GUIApp().startFrontEnd( bl );
-//    }
+    String savedName = null;
+    String dob = null;
+
+    @Override
+    public void addCustomer( String name, String dob ) {
+        this.savedName = name;
+        this.dob = dob;
+        System.out.println( "received "+name+" "+ dob );
+    }
+
     @Start
     void start( Stage stage ) throws Exception {
         this.stage = stage;
-        Parent parent = loadFXML( "customerView" );
+        FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource(
+                "/fxtest/customerView.fxml" ) );
+        fxmlLoader.setControllerFactory( controllerFactory );
+        Parent parent = fxmlLoader.load();
         Scene scene = new Scene( parent );
         stage.setScene( scene );
         stage.show();
-//        GUIApp main = new GUIApp();
-
-//        main.start( stage );
-    }
-
-    private static Parent loadFXML( String fxml ) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader( App.class.getResource(
-                fxml + ".fxml" ) );
-        return fxmlLoader.load();
     }
 
     //@Disabled("Think TDD")query
-//    @ParameterizedTest
-    @Test
-    void tSwitchToCustomer() {
+    @ParameterizedTest
+    @CsvSource( {
+        "James Watt,1736-01-19‎",
+        "Thomas Edison,1847-02-11"
+
+    } )
+    void tSwitchToCustomer( String name, String dob ) {
         FxRobot rob = new FxRobot();
 //        TextField editor =
         rob
                 .clickOn( "#customerName" )
-                .write( "Donald" )
+                .write( name )
                 .clickOn( "#dateOfBirth" )
-                .write( "1990-01-01" );
-//        TextField customerNameField = lookupNodeByName( rob,"#customerName" );
-//        assumeThat( customerNameField ).isNotNull();
-//        rob.clickOn( customerNameField ).write( "Hello World" );
-//
-//        TextField dobTextField =  lookupNodeByName( rob,"#dateOfBirth" );
-//        rob.clickOn( dobTextField ).write( "1955-03-18" );
-//        NodeQuery buttonLookup = lookupNodeByName( rob,"#StoreCustomer" ); 
-//
-//        Button submit = (Button) buttonLookup.query();
-//        rob.clickOn( submit );
-        fail( "method SwitchToCustomer completed succesfully; you know what to do" );
+                .write( dob.toString() ).
+                clickOn( "#storeCustomer" );
+        assertSoftly( softly -> {
+            softly.assertThat( this.savedName ).isEqualTo( name );
+            softly.assertThat( this.dob ).isEqualTo( dob );
+        } );
+
+//        fail( "method SwitchToCustomer completed succesfully; you know what to do" );
     }
 
     private <N extends Node> N lookupNodeByName( FxRobot rob, String name ) {
         return rob.lookup( name ).query();
     }
 
+    private final Callback<Class<?>, Object> controllerFactory = (
+            Class<?> c )
+            -> {
+        if ( c.getName().equals( "fxtest.CustomerController" ) ) {
+            return new CustomerController( this );
+        }
+        return null;
+
+    };
 }

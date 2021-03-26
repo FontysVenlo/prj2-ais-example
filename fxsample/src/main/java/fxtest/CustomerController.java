@@ -9,23 +9,20 @@ public class CustomerController {
     @FXML
     TextField customerName, dateOfBirth;
 
+    BusinessLogic bl;
 
-    public CustomerController() {
+    public CustomerController( BusinessLogic bl ) {
+        this.bl = bl;
     }
-
-//    public CustomerController( BusinessLogicAPI logicAPI ) {
-//        this.businessLogicAPI = logicAPI;
-//    }
 
     @FXML
     private void switchToSecondary() throws IOException {
+       
 //        GUIApp.setRoot( "secondary" );
     }
 
     @FXML
     private void storeCustomer() {
-//        Customer c = businessLogicAPI.getCustomerManager().createCustomer( 
-//                customerName.getText(), LocalDate.parse( dateOfBirth.getText() ) );
-//        businessLogicAPI.getCustomerManager().add( c );
+        bl.addCustomer( customerName.getText(), dateOfBirth.getText());
     }
 }

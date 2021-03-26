@@ -70,22 +70,26 @@ public class CustomerControllerTest {
     void tSwitchToCustomer() {
         FxRobot rob = new FxRobot();
 //        TextField editor =
-
-        TextField customerNameField = lookupNodeByName( rob,"#customerName" );
-        assumeThat( customerNameField ).isNotNull();
-        rob.clickOn( customerNameField ).write( "Hello World" );
-
-        TextField dobTextField =  lookupNodeByName( rob,"#dateOfBirth" );
-        rob.clickOn( dobTextField ).write( "1955-03-18" );
-        NodeQuery buttonLookup = lookupNodeByName( rob,"#StoreCustomer" ); 
-
-        Button submit = (Button) buttonLookup.query();
-        rob.clickOn( submit );
+        rob
+                .clickOn( "#customerName" )
+                .write( "Donald" )
+                .clickOn( "#dateOfBirth" )
+                .write( "1990-01-01" );
+//        TextField customerNameField = lookupNodeByName( rob,"#customerName" );
+//        assumeThat( customerNameField ).isNotNull();
+//        rob.clickOn( customerNameField ).write( "Hello World" );
+//
+//        TextField dobTextField =  lookupNodeByName( rob,"#dateOfBirth" );
+//        rob.clickOn( dobTextField ).write( "1955-03-18" );
+//        NodeQuery buttonLookup = lookupNodeByName( rob,"#StoreCustomer" ); 
+//
+//        Button submit = (Button) buttonLookup.query();
+//        rob.clickOn( submit );
         fail( "method SwitchToCustomer completed succesfully; you know what to do" );
     }
 
-    private <N extends Node> N lookupNodeByName( FxRobot rob ,String name) {
-        return  rob.lookup( name ).query();
+    private <N extends Node> N lookupNodeByName( FxRobot rob, String name ) {
+        return rob.lookup( name ).query();
     }
 
 }

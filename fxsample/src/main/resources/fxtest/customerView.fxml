@@ -13,7 +13,7 @@
       <TextField fx:id="customerName" />
       <Label text="Date of birth:" />
       <TextField fx:id="dateOfBirth"/>
-      <Button fx:id="StoreCustomer" onAction="#storeCustomer" text="Store Customer" />
+      <Button fx:id="storeCustomer" onAction="#storeCustomer" text="Store Customer" />
       <Label text="Primary View" />
       <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Switch to Secondary View" />
    </children>

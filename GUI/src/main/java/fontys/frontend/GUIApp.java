@@ -7,9 +7,6 @@ import javafx.util.Callback;
 import businesslogic.BusinessLogicAPI;
 import javafx.application.Platform;
 
-/**
- * JavaFX App
- */
 public class GUIApp extends Application {
 
     private BusinessLogicAPI businessLogicAPI;
@@ -31,7 +28,6 @@ public class GUIApp extends Application {
 
     public GUIApp(BusinessLogicAPI businessLogicAPI) {
         this.businessLogicAPI = businessLogicAPI;
-        System.out.println("CONSTRUCTOR " + System.identityHashCode(businessLogicAPI));
     }
 
     public GUIApp show() {

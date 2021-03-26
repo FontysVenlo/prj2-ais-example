@@ -14,35 +14,59 @@ public class GUIApp extends Application {
 
     private BusinessLogicAPI businessLogicAPI;
     private SceneManager sceneManager;
+    private static final String INITIAL_VIEW = "customerView";
 
     private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
             -> {
 
         switch (c.getName()) {
             case "fontys.frontend.CustomerController":
-                return new CustomerController( this::getSceneManager, businessLogicAPI.getCustomerManager());
+                return new CustomerController(this::getSceneManager, businessLogicAPI.getCustomerManager());
             case "fontys.frontend.SecondaryController":
-                return new SecondaryController( this::getSceneManager );
-            default: 
+                return new SecondaryController(this::getSceneManager);
+            default:
                 return null;
         }
     };
-    
-    public GUIApp( BusinessLogicAPI businessLogicAPI ) {
-        this( businessLogicAPI, true );
+
+    public GUIApp(BusinessLogicAPI businessLogicAPI) {
+        this.businessLogicAPI = businessLogicAPI;
+        System.out.println("CONSTRUCTOR " + System.identityHashCode(businessLogicAPI));
     }
 
-    GUIApp(BusinessLogicAPI businessLogicAPI, boolean startJavaFXToolkit) {
+    public GUIApp show() {
+        return init(true);
+    }
 
+    GUIApp init(boolean startJavaFXToolkit) {
+        
         if (startJavaFXToolkit) {
+
             Platform.startup(() -> {
             });
+            
+            initializeSceneManager();
+
+            Platform.runLater(() -> {
+                Stage stage = new Stage();
+                try {
+                    start(stage);
+                } catch (IOException ex) {
+                    throw new IllegalStateException(ex);
+                }
+            });
+            
+        } else {
+            initializeSceneManager();
         }
 
-        this.businessLogicAPI = businessLogicAPI;
-        sceneManager = new SceneManager(controllerFactory, "customerView");
+        return this;
     }
-
+    
+    private void initializeSceneManager(){
+        sceneManager = new SceneManager(controllerFactory,INITIAL_VIEW);
+    }
+    
     @Override
     public void start(Stage stage) throws IOException {
         sceneManager.displayOn(stage, 640, 480);
@@ -50,17 +74,5 @@ public class GUIApp extends Application {
 
     public SceneManager getSceneManager() {
         return sceneManager;
-    }
-
-    public void show() {
-
-        Platform.runLater(() -> {
-            Stage stage = new Stage();
-            try {
-                start(stage);
-            } catch (IOException ex) {
-                throw new IllegalStateException(ex);
-            }
-        });
     }
 }

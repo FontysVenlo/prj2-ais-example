@@ -16,8 +16,17 @@ public class CustomerController {
     private final CustomerManager customerManager;
     
     public CustomerController( Supplier<SceneManager> sceneManagerSupplier, CustomerManager customerManager ) {
+        System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRR");
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.customerManager = customerManager;
+        System.out.println("CUSTOMERMANAGER " + customerManager);
+    }
+    
+    @FXML
+    public void initialize(){
+        System.out.println("INITIALIZED");
+        System.out.println("CUSTNAME IN CONTROLLER " + System.identityHashCode( customerName) );
+        
     }
 
     @FXML
@@ -27,7 +36,7 @@ public class CustomerController {
 
     @FXML
     private void storeCustomer() {
-        
+        System.out.println("STORE CUSTOMER EXECUTED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Customer c = customerManager.createCustomer( 
                 customerName.getText(), LocalDate.parse( dateOfBirth.getText() ) );
         

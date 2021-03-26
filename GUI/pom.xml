@@ -58,7 +58,6 @@
             <version>4.0.15-alpha</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
@@ -74,7 +73,7 @@
                         ${argLine}
                         --add-opens GUI_module/fontys.frontend=ALL-UNNAMED 
                         --add-opens javafx.graphics/com.sun.javafx.application.ParametersImpl=ALL-UNNAMED
-			--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+                        --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
                     </argLine>
                 </configuration>
             </plugin>

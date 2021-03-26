@@ -3,8 +3,8 @@ package fxtest;
 import java.io.IOException;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -59,28 +59,33 @@ public class CustomerControllerTest {
     }
 
     private static Parent loadFXML( String fxml ) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader( App.class.getResource( 
+        FXMLLoader fxmlLoader = new FXMLLoader( App.class.getResource(
                 fxml + ".fxml" ) );
         return fxmlLoader.load();
     }
 
     //@Disabled("Think TDD")query
+//    @ParameterizedTest
     @Test
     void tSwitchToCustomer() {
         FxRobot rob = new FxRobot();
 //        TextField editor =
-        NodeQuery lookup = rob.lookup( "#customerName" ); //(Node t) -> t instanceof TextField));//.queryFirst();
-        TextField customerNameField = (TextField) lookup.query();
+
+        TextField customerNameField = lookupNodeByName( rob,"#customerName" );
         assumeThat( customerNameField ).isNotNull();
         rob.clickOn( customerNameField ).write( "Hello World" );
-        NodeQuery dobLookup = rob.lookup( "#dateOfBirth" ); //(Node t) -> t instanceof TextField));//.queryFirst();
-        TextField dobTextField = (TextField) dobLookup.query();
+
+        TextField dobTextField =  lookupNodeByName( rob,"#dateOfBirth" );
         rob.clickOn( dobTextField ).write( "1955-03-18" );
-        NodeQuery buttonLookup = rob.lookup( "#StoreCustomer" ); //(Node t) -> t instanceof TextField));//.queryFirst();
-        
+        NodeQuery buttonLookup = lookupNodeByName( rob,"#StoreCustomer" ); 
+
         Button submit = (Button) buttonLookup.query();
         rob.clickOn( submit );
         fail( "method SwitchToCustomer completed succesfully; you know what to do" );
+    }
+
+    private <N extends Node> N lookupNodeByName( FxRobot rob ,String name) {
+        return  rob.lookup( name ).query();
     }
 
 }

@@ -40,6 +40,7 @@ public class CustomerController {
         Customer c = customerManager.createCustomer( 
                 customerName.getText(), LocalDate.parse( dateOfBirth.getText() ) );
         
+        System.out.println("PASS To customerManager: " + c.getName() + " " + c.getDateOfBirth());
         customerManager.add( c );
     }
 }

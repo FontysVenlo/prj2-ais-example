@@ -2,8 +2,8 @@ package fontys.frontend;
 
 import businessentitiesapi.Customer;
 import businessentitiesapi.CustomerManager;
-import java.io.IOException;
 import java.time.LocalDate;
+import java.util.function.Supplier;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -12,20 +12,17 @@ public class CustomerController {
     @FXML
     TextField customerName, dateOfBirth;
 
-    private final GUIApp guiApp;
+    private final Supplier<SceneManager> sceneManagerSupplier;
     private final CustomerManager customerManager;
     
-    public CustomerController( GUIApp guiApp ) {
-        System.out.println("STEP 1 =============================================================");
-        this.guiApp = guiApp;
-        System.out.println("STEP 2 =============================================================");
-        customerManager = guiApp.getBusinessLogicAPI().getCustomerManager();
-        System.out.println("STEP 3 =============================================================");
+    public CustomerController( Supplier<SceneManager> sceneManagerSupplier, CustomerManager customerManager ) {
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.customerManager = customerManager;
     }
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        guiApp.setRoot( "secondary" );
+    private void switchToSecondary() {
+        sceneManagerSupplier.get().changeScene( "secondary" );
     }
 
     @FXML

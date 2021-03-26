@@ -50,18 +50,25 @@ public class GUIAppTest {
 
     @Start
     void start(Stage stage) throws IOException {
-        new GUIApp( businessLogic ).start( stage );
+        new GUIApp( businessLogic, false ).start( stage );
     }
 
     //@Disabled("Think TDD")
     @Test
     void tSwitchToCustomer(FxRobot robot) {
 
-        NodeQuery lookup = robot.lookup("#customerName"); //(Node t) -> t instanceof TextField));//.queryFirst();
-        TextField textField = (TextField) lookup.query();
-        assumeThat(textField).isNotNull();
-        robot.clickOn(textField).write("Hello World");
-        NodeQuery buttonLookup = robot.lookup("#StoreCustomer"); //(Node t) -> t instanceof TextField));//.queryFirst();
+        NodeQuery nameLookup;
+        nameLookup = robot.lookup("#customerName");
+        TextField nametextField = (TextField) nameLookup.query();
+        assumeThat(nametextField).isNotNull();
+        robot.clickOn(nametextField).write("Donald");
+        
+        NodeQuery dobLookup = robot.lookup("#dateOfBirth");
+        TextField dobTextField = (TextField) dobLookup.query();
+        assumeThat(dobTextField).isNotNull();
+        robot.clickOn(dobTextField).write("1990-01-01");
+        
+        NodeQuery buttonLookup = robot.lookup("#StoreCustomer");
         Button submit = (Button) buttonLookup.query();
         robot.clickOn(submit);
         //fail( "method SwitchToCustomer completed succesfully; you know what to do" );

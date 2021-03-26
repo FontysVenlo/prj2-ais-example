@@ -1,9 +1,6 @@
 package fontys.frontend;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.util.Callback;
@@ -15,65 +12,55 @@ import javafx.application.Platform;
  */
 public class GUIApp extends Application {
 
-    private Scene scene;
-    private final BusinessLogicAPI businessLogicAPI;
-
-    public GUIApp(BusinessLogicAPI businessLogicAPI) {
-        this.businessLogicAPI = businessLogicAPI;
-    }
-
-    @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("customerView"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    BusinessLogicAPI getBusinessLogicAPI() {
-        return businessLogicAPI;
-    }
-
-    void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(GUIApp.class.getResource(fxml + ".fxml"));
-
-        fxmlLoader.setControllerFactory(controllerFactory);
-
-        return fxmlLoader.load();
-    }
+    private BusinessLogicAPI businessLogicAPI;
+    private SceneManager sceneManager;
 
     private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
             -> {
 
         switch (c.getName()) {
-
             case "fontys.frontend.CustomerController":
-                return new CustomerController(this);
+                return new CustomerController( this::getSceneManager, businessLogicAPI.getCustomerManager());
             case "fontys.frontend.SecondaryController":
-                return new SecondaryController(this);
+                return new SecondaryController( this::getSceneManager );
+            default: 
+                return null;
         }
-        
-        return null;
-
     };
+    
+    public GUIApp( BusinessLogicAPI businessLogicAPI ) {
+        this( businessLogicAPI, true );
+    }
 
-    public static void main(String[] args) {
-        launch();
+    GUIApp(BusinessLogicAPI businessLogicAPI, boolean startJavaFXToolkit) {
+
+        if (startJavaFXToolkit) {
+            Platform.startup(() -> {
+            });
+        }
+
+        this.businessLogicAPI = businessLogicAPI;
+        sceneManager = new SceneManager(controllerFactory, "customerView");
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        sceneManager.displayOn(stage, 640, 480);
+    }
+
+    public SceneManager getSceneManager() {
+        return sceneManager;
     }
 
     public void show() {
 
-        Platform.startup(() -> {
+        Platform.runLater(() -> {
             Stage stage = new Stage();
             try {
                 start(stage);
-            } catch (Exception ex) {
+            } catch (IOException ex) {
                 throw new IllegalStateException(ex);
             }
-        });   
+        });
     }
-
 }

@@ -1,18 +1,18 @@
 package fontys.frontend;
 
-import java.io.IOException;
+import java.util.function.Supplier;
 import javafx.fxml.FXML;
 
 public class SecondaryController {
 
-    private GUIApp guiApp;
+    private final Supplier<SceneManager> sceneManagerSupplier;
 
-    public SecondaryController(GUIApp guiApp) {
-        this.guiApp = guiApp;
+    public SecondaryController(Supplier<SceneManager> sceneManagerSupplier) {
+        this.sceneManagerSupplier = sceneManagerSupplier;
     }
     
     @FXML
-    private void switchToPrimary() throws IOException {
-        guiApp.setRoot("primary");
+    private void switchToPrimary() {
+        sceneManagerSupplier.get().changeScene("customerView");
     }
 }

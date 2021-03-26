@@ -44,62 +44,50 @@ public class GUIAppTest {
             System.setProperty("monocle.platform", "Headless");
         }
     }
-
-//    @Mock
+    
     CustomerManager customerManager;
-//
-    BusinessLogicAPI businessLogic;// = new BusinessLogicAPI() {
-//        @Override
-//        public CustomerManager getCustomerManager() {
-//            return customerManager;
-//        }
-//    };
+    BusinessLogicAPI businessLogic;
 
     @Start
     void start(Stage stage) throws IOException {
+        
         customerManager = mock(CustomerManager.class);
-        businessLogic = new BusinessLogicAPI() {
-            @Override
-            public CustomerManager getCustomerManager() {
-                return customerManager;
-            }
-        };
+        businessLogic = () -> customerManager;
        
         System.out.println("MOCK: " + System.identityHashCode(businessLogic));
         
         new GUIApp(businessLogic).init(false).start(stage);
     }
 
-    @BeforeEach
-    void setup() {
-
-    }
-
     //@Disabled("Think TDD")
     @Test
     void testAddCustomer(FxRobot robot) {
 
-//        ArgumentCaptor<Customer> customerCaptor = ArgumentCaptor.forClass(Customer.class);
-//
-//        TextField tf = (TextField)robot.lookup("#customerName").query();
-//        tf.setText("Elon Musk");
-//        System.out.println("CUSTNAME IN TEST " + System.identityHashCode( tf) );
-//        
-//        ((TextField) robot.lookup("#dateOfBirth").query()).setText("1971-06-28");
-//
-//        Node query = robot.lookup("#storeCustomer").query();
-//        robot.clickOn((Button) query);
+        ArgumentCaptor<Customer> customerCaptor = ArgumentCaptor.forClass(Customer.class);
 
-        //verify(customerManager).add(customerCaptor.capture());
+        TextField tf = (TextField)robot.lookup("#customerName").query();
+        tf.setText("Elon Musk");
+        System.out.println("CUSTNAME IN TEST " + System.identityHashCode( tf) );
+        
+        ((TextField) robot.lookup("#dateOfBirth").query()).setText("1971-06-28");
 
-        //assertThat(customerCaptor.getValue().getName()).isEqualTo("Elon Musk");
-        //assertThat(customerCaptor.getValue().getDateOfBirth()).isEqualTo("");
+        Node query = robot.lookup("#storeCustomer").query();
+        robot.clickOn((Button) query);
+
+        verify(customerManager).add(customerCaptor.capture());
+
+        System.out.println("CAPTOR: " + customerCaptor);
+        System.out.println( customerCaptor.getAllValues());
+        
+        assertThat(customerCaptor.getValue().getName()).isEqualTo("Elon Musk");
+        assertThat(customerCaptor.getValue().getDateOfBirth()).isEqualTo("");
 
         robot
                 .clickOn("#customerName")
                 .write("Donald")
                 .clickOn("#dateOfBirth")
                 .write( "1990-01-01" );
+        
 
 //        NodeQuery dobLookup = robot.lookup("#dateOfBirth");
 //        TextField dobTextField = (TextField) dobLookup.query();

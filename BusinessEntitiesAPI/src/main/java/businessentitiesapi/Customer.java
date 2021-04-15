@@ -3,6 +3,7 @@
  */
 package businessentitiesapi;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import nl.fontys.sebivenlo.sebiannotations.ID;
 
@@ -10,7 +11,7 @@ import nl.fontys.sebivenlo.sebiannotations.ID;
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
-public class Customer{
+public class Customer implements Serializable {
     
     @ID
     private final Integer customerid;

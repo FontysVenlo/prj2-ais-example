@@ -27,7 +27,7 @@ public class CustomerManager {
     }
 
     public Customer createCustomer( String name, LocalDate dob ) {
-        return new Customer(name, dob);
+        return new Customer(0, name, dob);
     }
     
 }

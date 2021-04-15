@@ -30,8 +30,8 @@ class CustomerStorageServiceImpl implements CustomerStorageService{
         // for each entry in resultset, make customerobject using factory method in CustomerManager.
         // For now, simulate DB result:
         
-        Customer dummy1 = new Customer("Lisa", LocalDate.of(1980, 8, 1));
-        Customer dummy2 = new Customer("Jack", LocalDate.of(1960, 1, 8));
+        Customer dummy1 = new Customer(0, "Lisa", LocalDate.of(1980, 8, 1));
+        Customer dummy2 = new Customer(1, "Jack", LocalDate.of(1960, 1, 8));
         
         return new ArrayList<>( Arrays.asList( dummy1, dummy2 ));
         

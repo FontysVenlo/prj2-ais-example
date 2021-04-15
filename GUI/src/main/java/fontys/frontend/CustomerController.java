@@ -1,7 +1,7 @@
 package fontys.frontend;
 
 import businessentitiesapi.Customer;
-import businessentitiesapi.CustomerManager;
+import businesslogic.CustomerManager;
 import java.time.LocalDate;
 import java.util.function.Supplier;
 import javafx.fxml.FXML;

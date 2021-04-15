@@ -3,7 +3,6 @@
  */
 package persistence;
 
-import businessentitiesapi.CustomerManager;
 
 /**
  *
@@ -12,8 +11,8 @@ import businessentitiesapi.CustomerManager;
 class PersistenceAPIImpl implements PersistenceImplementationProvider, PersistenceAPI {
 
     @Override
-    public CustomerStorageService getCustomerStorageService( CustomerManager customerManager ) {
-        return new CustomerStorageServiceImpl( customerManager );
+    public CustomerStorageService getCustomerStorageService( ) {
+        return new CustomerStorageServiceImpl(  );
     }
     
 }

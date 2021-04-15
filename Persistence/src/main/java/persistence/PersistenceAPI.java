@@ -3,7 +3,6 @@
  */
 package persistence;
 
-import businessentitiesapi.CustomerManager;
 
 /**
  * Facade that provides all persistence/storage services to the business logic.
@@ -20,7 +19,7 @@ public interface PersistenceAPI {
      * @param customerManager
      * @return CustomerStorageService object that knows how to store and retrieve customers.
      */
-    default CustomerStorageService getCustomerStorageService( CustomerManager customerManager ){
+    default CustomerStorageService getCustomerStorageService( ){
         return null;
     }
     

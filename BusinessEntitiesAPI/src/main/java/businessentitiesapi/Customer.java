@@ -4,6 +4,7 @@
 package businessentitiesapi;
 
 import java.time.LocalDate;
+import nl.fontys.sebivenlo.sebiannotations.ID;
 
 /**
  *
@@ -11,12 +12,19 @@ import java.time.LocalDate;
  */
 public class Customer{
     
+    @ID
+    private final Integer customerid;
     private final String name;
     private final LocalDate dateOfBirth;
 
-    public Customer( String name, LocalDate dob ) {
+    public Customer( Integer customerid, String name, LocalDate dob ) {
+        this.customerid = customerid;
         this.name = name;
         this.dateOfBirth = dob;
+    }
+    
+    public Integer getCustomerid(){
+        return customerid;
     }
 
     public String getName() {

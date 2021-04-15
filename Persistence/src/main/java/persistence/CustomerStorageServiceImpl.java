@@ -27,8 +27,11 @@ class CustomerStorageServiceImpl implements CustomerStorageService {
     @Override
     public Optional<Customer> add( Customer c ) {
         System.out.println( "DO SMART THINGS TO STORE A CUSTOMER" );
-        var customerDao = daoFactory.createDao(Customer.class);
-        return customerDao.save(c);
+        return Optional.of(c);
+        // Store the customer in the actual database
+        //
+        //var customerDao = daoFactory.createDao(Customer.class);
+        //return customerDao.save(c);
     }
     
     @Override

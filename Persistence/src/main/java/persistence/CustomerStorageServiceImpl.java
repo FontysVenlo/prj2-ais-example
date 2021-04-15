@@ -4,23 +4,31 @@
 package persistence;
 
 import businessentitiesapi.Customer;
+import genericdao.dao.DAOFactory;
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
-class CustomerStorageServiceImpl implements CustomerStorageService{
+class CustomerStorageServiceImpl implements CustomerStorageService {
+    
+    private final DAOFactory daoFactory;
+
+    public CustomerStorageServiceImpl(DAOFactory daoFactory) {
+        this.daoFactory = daoFactory;
+    }
     
     @Override
-    public void add( Customer c ) {
+    public Optional<Customer> add( Customer c ) {
         System.out.println( "DO SMART THINGS TO STORE A CUSTOMER" );
+        var customerDao = daoFactory.createDao(Customer.class);
+        return customerDao.save(c);
     }
     
     @Override

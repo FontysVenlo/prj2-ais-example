@@ -6,6 +6,7 @@ package businesslogic;
 import java.time.LocalDate;
 import persistence.CustomerStorageService;
 import businessentitiesapi.Customer;
+import java.util.Optional;
 
 /**
  *
@@ -21,9 +22,8 @@ public class CustomerManager {
         this.customerStorageService = customerStorageService;
     }
     
-    public Customer add(Customer c){
-        customerStorageService.add(c);
-        return c;
+    public Optional<Customer> add(Customer c){
+        return customerStorageService.add(c);
     }
 
     public Customer createCustomer( String name, LocalDate dob ) {

@@ -3,6 +3,8 @@
  */
 package persistence;
 
+import genericdao.dao.DAOFactory;
+
 
 /**
  * Facade that provides all persistence/storage services to the business logic.

@@ -5,6 +5,7 @@ package persistence;
 
 import businessentitiesapi.Customer;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public interface CustomerStorageService {
     
-    void add( Customer c);
+    Optional<Customer> add( Customer c);
     List<Customer> getAll();
     
 }

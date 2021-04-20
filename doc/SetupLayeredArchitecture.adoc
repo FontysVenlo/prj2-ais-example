@@ -336,7 +336,7 @@ project to make your life easier!
 After some retrospective, we concluded that the preferred approach on the entities is to use simple java objects,
 sometimes colloquially called POJOS (Plain Old Java Objects) instead of interfaces for all entity classes. This will simplify your 
 implementation and you are compatible with the design of the genericmapper and genericdao projects from PRC2. Some refactoring is 
-needed! (but don't worry, refactoring is often necessary: https://youtube.com/watch?v=vqEg37e4Mkw&feature=share )
+needed! (but don't worry, refactoring is often necessary: https://youtube.com/watch?v=vqEg37e4Mkw&feature=share[Martin Fowler on refactoring])
 
 .The entities in this model are simple data carrying classes, and implement explicit interfaces.
 image::AISClassDiagram5.svg[Simplified Entity model]

@@ -30,6 +30,7 @@ hs_err_pid*
 /GUI/nbproject/
 *~
 /fxsample/target/
+/Assembler/application.properties
 .project
 .settings/
 *.classpath

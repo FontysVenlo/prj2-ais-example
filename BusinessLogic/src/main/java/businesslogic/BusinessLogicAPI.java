@@ -3,8 +3,6 @@
  */
 package businesslogic;
 
-import businessentitiesapi.CustomerManager;
-
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}

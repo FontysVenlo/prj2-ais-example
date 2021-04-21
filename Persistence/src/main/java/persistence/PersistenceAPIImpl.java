@@ -3,17 +3,24 @@
  */
 package persistence;
 
-import businessentitiesapi.CustomerManager;
+import genericdao.dao.DAOFactory;
+
 
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
 class PersistenceAPIImpl implements PersistenceImplementationProvider, PersistenceAPI {
+    
+    private final DAOFactory daoFactory;
+
+    public PersistenceAPIImpl(DAOFactory daoFactory) {
+        this.daoFactory = daoFactory;
+    }
 
     @Override
-    public CustomerStorageService getCustomerStorageService( CustomerManager customerManager ) {
-        return new CustomerStorageServiceImpl( customerManager );
+    public CustomerStorageService getCustomerStorageService() {
+        return new CustomerStorageServiceImpl( daoFactory );
     }
     
 }

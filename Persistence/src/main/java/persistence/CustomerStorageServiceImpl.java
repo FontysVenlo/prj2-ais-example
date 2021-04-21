@@ -4,34 +4,34 @@
 package persistence;
 
 import businessentitiesapi.Customer;
-import businessentitiesapi.CustomerManager;
+import genericdao.dao.DAOFactory;
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
-class CustomerStorageServiceImpl implements CustomerStorageService{
+class CustomerStorageServiceImpl implements CustomerStorageService {
+    
+    private final DAOFactory daoFactory;
 
-    /**
-     * The customerManager can be used to create Customer objects, 
-     * which is delegated to the business logic layer.
-     */
-    private final CustomerManager customerManager;
-
-    CustomerStorageServiceImpl(CustomerManager customerManager) {
-        this.customerManager = customerManager;
+    public CustomerStorageServiceImpl(DAOFactory daoFactory) {
+        this.daoFactory = daoFactory;
     }
-
+    
     @Override
-    public void add( Customer c ) {
+    public Optional<Customer> add( Customer c ) {
         System.out.println( "DO SMART THINGS TO STORE A CUSTOMER" );
+        return Optional.of(c);
+        // Store the customer in the actual database
+        //
+        //var customerDao = daoFactory.createDao(Customer.class);
+        //return customerDao.save(c);
     }
     
     @Override
@@ -41,8 +41,8 @@ class CustomerStorageServiceImpl implements CustomerStorageService{
         // for each entry in resultset, make customerobject using factory method in CustomerManager.
         // For now, simulate DB result:
         
-        Customer dummy1 = customerManager.createCustomer("Lisa", LocalDate.of(1980, 8, 1));
-        Customer dummy2 = customerManager.createCustomer("Jack", LocalDate.of(1960, 1, 8));
+        Customer dummy1 = new Customer(0, "Lisa", LocalDate.of(1980, 8, 1));
+        Customer dummy2 = new Customer(1, "Jack", LocalDate.of(1960, 1, 8));
         
         return new ArrayList<>( Arrays.asList( dummy1, dummy2 ));
         

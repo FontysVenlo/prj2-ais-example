@@ -3,16 +3,16 @@
  */
 package businesslogic;
 
-import businessentitiesapi.Customer;
-import businessentitiesapi.CustomerManager;
 import java.time.LocalDate;
 import persistence.CustomerStorageService;
+import businessentitiesapi.Customer;
+import java.util.Optional;
 
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
-class CustomerManagerImpl implements CustomerManager { 
+public class CustomerManager { 
     
     private CustomerStorageService customerStorageService;
     
@@ -22,15 +22,12 @@ class CustomerManagerImpl implements CustomerManager {
         this.customerStorageService = customerStorageService;
     }
     
-    @Override
-    public Customer add(Customer c){
-        customerStorageService.add(c);
-        return c;
+    public Optional<Customer> add(Customer c){
+        return customerStorageService.add(c);
     }
 
-    @Override
     public Customer createCustomer( String name, LocalDate dob ) {
-        return new CustomerImpl(name, dob);
+        return new Customer(0, name, dob);
     }
     
 }

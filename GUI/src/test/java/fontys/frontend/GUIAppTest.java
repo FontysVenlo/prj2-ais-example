@@ -1,7 +1,7 @@
 package fontys.frontend;
 
 import businessentitiesapi.Customer;
-import businessentitiesapi.CustomerManager;
+import businesslogic.CustomerManager;
 import businesslogic.BusinessLogicAPI;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -57,19 +57,7 @@ public class GUIAppTest {
     void testAddCustomer(FxRobot robot) {
 
         when(customerManager.createCustomer(anyString(), any()))
-                .thenReturn(new Customer() {
-
-                    @Override
-                    public String getName() {
-                        return "Elon Musk";
-                    }
-
-                    @Override
-                    public LocalDate getDateOfBirth() {
-                        return LocalDate.of(1971, Month.JUNE, 28);
-                    }
-
-                });
+                .thenReturn(new Customer(0, "Elon Musk", LocalDate.of(1971, Month.JUNE, 28)));
 
         ArgumentCaptor<Customer> customerCaptor = ArgumentCaptor.forClass(Customer.class);
 

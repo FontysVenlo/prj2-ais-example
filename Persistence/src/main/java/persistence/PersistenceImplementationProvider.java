@@ -5,14 +5,16 @@
  */
 package persistence;
 
+import genericdao.dao.DAOFactory;
+
 /**
  *
  * @author hvd
  */
 public interface PersistenceImplementationProvider extends PersistenceAPI {
     
-    static PersistenceAPI getImplementation(){
-        return new PersistenceAPIImpl();
+    static PersistenceAPI getImplementation( DAOFactory daoFactory ){
+        return new PersistenceAPIImpl(daoFactory);
     };
     
 }

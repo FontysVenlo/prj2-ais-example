@@ -3,7 +3,6 @@
  */
 package businesslogic;
 
-import businessentitiesapi.CustomerManager;
 import persistence.PersistenceAPI;
 
 /**
@@ -20,8 +19,8 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
 
     @Override
     public CustomerManager getCustomerManager(){
-        CustomerManagerImpl customerManager = new CustomerManagerImpl();
-        customerManager.setCustomerStorageService(persistenceAPI.getCustomerStorageService( customerManager ) );
+        CustomerManager customerManager = new CustomerManager();
+        customerManager.setCustomerStorageService(persistenceAPI.getCustomerStorageService() );
         return customerManager;
     }
     

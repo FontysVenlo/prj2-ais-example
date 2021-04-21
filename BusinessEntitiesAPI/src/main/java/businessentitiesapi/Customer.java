@@ -3,24 +3,41 @@
  */
 package businessentitiesapi;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import nl.fontys.sebivenlo.sebiannotations.ID;
 
 /**
- * Customer class, representing the customer of a company.
+ *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
-public interface Customer {
+public class Customer implements Serializable {
     
-    /**
-     * Get name of customer.
-     * @return customer name
-     */
-    String getName();   
+    @ID
+    private final Integer customerid;
+    private final String name;
+    private final LocalDate dateOfBirth;
+
+    public Customer( Integer customerid, String name, LocalDate dob ) {
+        this.customerid = customerid;
+        this.name = name;
+        this.dateOfBirth = dob;
+    }
     
-    /**
-     * Get date of birth of customer.
-     * @return date of birth
-     */
-    LocalDate getDateOfBirth();
-    
+    public Integer getCustomerid(){
+        return customerid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" + "name=" + name + ", dateOfBirth=" + dateOfBirth + '}';
+    }
 }

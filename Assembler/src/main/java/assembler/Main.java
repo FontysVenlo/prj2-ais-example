@@ -4,7 +4,10 @@ import businesslogic.BusinessLogicAPI;
 import persistence.PersistenceAPI;
 import businesslogic.BusinessLogicImplementationProvider;
 import fontys.frontend.GUIApp;
+import genericdao.pgdao.PGDAOFactory;
+import genericdao.pgdao.PGJDBCUtils;
 import persistence.PersistenceImplementationProvider;
+import javax.sql.DataSource;
 
 
 /*
@@ -19,7 +22,9 @@ public class Main {
     
     public static void main( String[] args ) {
         
-        PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation();
+        DataSource ds = PGJDBCUtils.getDataSource( "simpledao" );
+        PGDAOFactory daoFactory = new PGDAOFactory(ds);
+        PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
         BusinessLogicAPI businesslogicAPI = BusinessLogicImplementationProvider.getImplementation( persistenceAPI );
         
         new GUIApp( businesslogicAPI ).show();

@@ -31,3 +31,6 @@ hs_err_pid*
 *~
 /fxsample/target/
 /Assembler/application.properties
+.project
+.settings/
+*.classpath

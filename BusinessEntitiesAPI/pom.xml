@@ -19,8 +19,33 @@
         <dependency>
             <groupId>nl.fontys.sebivenlo</groupId>
             <artifactId>genericmapper</artifactId>
-            <version>2.2-SNAPSHOT</version>
+            <version>2.2.0</version>
             <type>jar</type>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>nl.fontys.sebivenlo</groupId>
+                <artifactId>mapperplugin</artifactId> 
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>gen-src</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>sebimappergenerator</goal> 
+                        </goals>
+                        <configuration>
+                            <entityPackages>
+                                <entityPackage>businessentitiesapi</entityPackage>
+                            </entityPackages>
+                            <classesDir>${basedir}/target/classes</classesDir>
+                            <outDir>${basedir}/src/main/java</outDir>
+                        </configuration>
+                    </execution> 
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

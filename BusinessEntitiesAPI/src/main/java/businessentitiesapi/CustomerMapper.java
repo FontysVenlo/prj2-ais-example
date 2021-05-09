@@ -1,20 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package businessentitiesapi;
 
+import businessentitiesapi.Customer;
 import genericmapper.Mapper;
 import java.util.function.Function;
 
 /**
- *
- * @author fontys
+ * Generated code. Do not edit, your changes will be lost.
  */
 public class CustomerMapper extends Mapper<Customer, Integer> {
 
-    // No public ctor
+    // No public ctor 
     private CustomerMapper() {
         super( Customer.class, java.lang.invoke.MethodHandles.lookup()  );
     }
@@ -28,10 +23,10 @@ public class CustomerMapper extends Mapper<Customer, Integer> {
     @Override
     public Object[] deconstruct(  Customer c ) {
            return new Object[]{
-                            c.getCustomerid(),
+              c.getCustomerid(),
               c.getName(),
               c.getDateOfBirth()
-           };
+           }; 
     }
 
     @Override

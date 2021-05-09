@@ -23,6 +23,7 @@ target/
 hs_err_pid*
 /Persistence/target/
 /BusinessEntitiesAPI/target/
+/BusinessEntitiesAPI/**/*Mapper.java
 /target/
 /GUI/target/
 /BusinessLogic/target/

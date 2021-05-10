@@ -441,6 +441,9 @@ public class CustomerMapper extends Mapper<Customer, Integer> {
 }
 ----
 
+.A further simplification can be made by replacing the persistence service by DAO and friends.
+image::AISClassDiagram6.svg[Simplified Entity model]
+
 
 == Using the MapperPlugin
 
@@ -448,3 +451,8 @@ Since 2021-05-09 we have provided a mavn mapper plugin that can be combined with
 was the PRC2 exercise of week six week6. The exact recipe to make that work has been described in the https://prc2.fontysvenlo.org/2021/week06.html#_use_a_maven_plugin_to_generate_mappers_on_the_fly[updated week 6 DOC]
 
 It boils down to the fact that you can generate your mappers for your entities by just running `mvn compile` in your entities project.
+
+== Conceptual Sequence Diagram using DAO and friends
+
+.sequence diagram
+image:sequencediagram.svg[]

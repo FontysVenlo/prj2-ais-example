@@ -445,6 +445,7 @@ public class CustomerMapper extends Mapper<Customer, Integer> {
 image::AISClassDiagram6.svg[Simplified Entity model]
 
 
+
 == Using the MapperPlugin
 
 Since 2021-05-09 we have provided a mavn mapper plugin that can be combined with the genericmapper that

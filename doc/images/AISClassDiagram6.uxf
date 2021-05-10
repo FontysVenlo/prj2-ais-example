@@ -35,7 +35,8 @@ transparency=90</panel_attributes>
       <w>180</w>
       <h>50</h>
     </coordinates>
-    <panel_attributes>CustomerManager
+    <panel_attributes>{MVS:model}
+CustomerManager
 bg=green
 transparency=0</panel_attributes>
     <additional_attributes/>
@@ -66,22 +67,24 @@ transparency=0</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>770</x>
-      <y>880</y>
+      <y>870</y>
       <w>160</w>
-      <h>30</h>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>CustomerController</panel_attributes>
+    <panel_attributes>{MVC:controller}
+CustomerController</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>960</x>
-      <y>880</y>
+      <y>870</y>
       <w>150</w>
-      <h>30</h>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>customerView.fxml</panel_attributes>
+    <panel_attributes>{MVC:view}
+customerView.fxml</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -104,7 +107,7 @@ transparency=0</panel_attributes>
       <w>60</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=.
+    <panel_attributes>lt=&lt;.
 </panel_attributes>
     <additional_attributes>40.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -125,7 +128,7 @@ transparency=0</panel_attributes>
     <coordinates>
       <x>1220</x>
       <y>340</y>
-      <w>150</w>
+      <w>170</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>{simple data carrier}
@@ -151,11 +154,11 @@ bg=green</panel_attributes>
       <x>790</x>
       <y>610</y>
       <w>70</w>
-      <h>290</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 </panel_attributes>
-    <additional_attributes>50.0;270.0;10.0;10.0</additional_attributes>
+    <additional_attributes>50.0;260.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -163,11 +166,11 @@ bg=green</panel_attributes>
       <x>900</x>
       <y>360</y>
       <w>340</w>
-      <h>540</h>
+      <h>530</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;520.0;10.0;480.0;190.0;480.0;190.0;10.0;320.0;10.0</additional_attributes>
+    <additional_attributes>10.0;510.0;10.0;480.0;190.0;480.0;190.0;10.0;320.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
@@ -245,25 +248,25 @@ m2=&lt;&lt;selects and configures Factory&gt;&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>470</x>
-      <y>190</y>
+      <y>210</y>
       <w>230</w>
-      <h>420</h>
+      <h>400</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 </panel_attributes>
-    <additional_attributes>210.0;400.0;50.0;400.0;50.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>210.0;380.0;50.0;380.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>350</y>
-      <w>170</w>
-      <h>250</h>
+      <x>780</x>
+      <y>390</y>
+      <w>120</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>30.0;10.0;10.0;10.0;10.0;230.0;150.0;230.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;190.0;80.0;190.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -435,7 +438,7 @@ bg=yellow</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>560</x>
-      <y>180</y>
+      <y>170</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -473,18 +476,18 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>620</x>
-      <y>210</y>
+      <y>200</y>
       <w>240</w>
-      <h>80</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;uses&gt;&gt;</panel_attributes>
-    <additional_attributes>220.0;60.0;120.0;60.0;120.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>220.0;70.0;120.0;70.0;120.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
+      <x>580</x>
       <y>350</y>
       <w>210</w>
       <h>70</h>
@@ -507,13 +510,13 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
-      <y>220</y>
+      <x>590</x>
+      <y>210</y>
       <w>30</w>
-      <h>150</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -579,27 +582,27 @@ work to the lower level.</panel_attributes>
       <h>60</h>
     </coordinates>
     <panel_attributes>and other 
-controllers 
+managers
 etc</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
+      <x>780</x>
       <y>340</y>
-      <w>480</w>
-      <h>80</h>
+      <w>460</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 m2=&lt;provides persitence for&gt;&gt;</panel_attributes>
-    <additional_attributes>460.0;10.0;300.0;10.0;300.0;50.0;10.0;50.0</additional_attributes>
+    <additional_attributes>440.0;10.0;280.0;10.0;280.0;30.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>610</x>
-      <y>240</y>
+      <y>250</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -611,15 +614,15 @@ layer=1</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>310</x>
+      <x>290</x>
       <y>350</y>
       <w>200</w>
-      <h>120</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>The DAOFActory
 implementation
-determines
-which DAO&lt;E,K&gt;
+and configuration
+decides which DAO&lt;E,K&gt;
 implementations you get
 bg=yellow</panel_attributes>
     <additional_attributes/>
@@ -646,5 +649,28 @@ bg=yellow</panel_attributes>
     <panel_attributes>lt=&lt;.
 &lt;&lt;creates&gt;&gt;</panel_attributes>
     <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>190</y>
+      <w>130</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+m1=&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>110.0;170.0;60.0;170.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>180</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

@@ -1,6 +1,6 @@
-package businessentitiesapi;
+package businessentities;
 
-import businessentitiesapi.Customer;
+import businessentities.Customer;
 import genericmapper.Mapper;
 import java.util.function.Function;
 

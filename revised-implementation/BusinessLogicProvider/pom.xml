@@ -4,27 +4,22 @@
     <parent>
         <groupId>fontys</groupId>
         <artifactId>AirlineInformationSystem</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
     </parent>
-    <artifactId>Persistence</artifactId>
+    <artifactId>BusinessLogicProvider</artifactId>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>fontys</groupId>
-            <artifactId>BusinessEntitiesAPI</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>BusinessEntities</artifactId>
+            <version>1.1-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>nl.fontys.sebivenlo</groupId>
-            <artifactId>genericdao</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.20</version>
+            <groupId>fontys</groupId>
+            <artifactId>BusinessLogic</artifactId>
+            <version>1.1-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
     </dependencies>

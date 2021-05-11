@@ -3,12 +3,12 @@
  */
 package businesslogic;
 
+import genericdao.dao.DAOFactory;
+
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
-public interface BusinessLogicAPI {
-
-    CustomerManager getCustomerManager();
-
+public interface AssemblerDelegate {
+    public abstract CustomerManager getCustomerManager();
 }

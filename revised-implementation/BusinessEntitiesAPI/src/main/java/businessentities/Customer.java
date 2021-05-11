@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2019 Informatics Fontys FHTenL University of Applied Science Venlo
  */
-package businessentitiesapi;
+package businessentities;
 
 import java.io.Serializable;
 import java.time.LocalDate;

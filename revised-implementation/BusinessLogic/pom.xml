@@ -4,28 +4,20 @@
     <parent>
         <groupId>fontys</groupId>
         <artifactId>AirlineInformationSystem</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.1-SNAPSHOT</version>
     </parent>
     <artifactId>BusinessLogic</artifactId>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>fontys</groupId>
-            <artifactId>Persistence</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>BusinessEntities</artifactId>
+            <version>1.1-SNAPSHOT</version>
             <type>jar</type>
-            <exclusions>
-                <exclusion>
-                    <groupId>fontys</groupId>
-                    <artifactId>BusinessLogicAPI</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
-            <groupId>fontys</groupId>
-            <artifactId>BusinessEntitiesAPI</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
+            <groupId>nl.fontys.sebivenlo</groupId>
+            <artifactId>genericdao</artifactId>
         </dependency>
     </dependencies>
 </project>

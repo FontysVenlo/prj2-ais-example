@@ -1,6 +1,6 @@
-module businessentities_api_module {
+module businessentities_module {
     
-    exports businessentitiesapi;
+    exports businessentities;
     requires nl.fontys.sebivenlo.sebiannotations;
     requires nl.fontys.sebivenlo.genericmapper;
 }

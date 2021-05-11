@@ -4,12 +4,12 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.util.Callback;
-import businesslogic.BusinessLogicAPI;
+import businesslogic.AssemblerDelegate;
 import javafx.application.Platform;
 
 public class GUIApp extends Application {
 
-    private BusinessLogicAPI businessLogicAPI;
+    private AssemblerDelegate businessLogicAPI;
     private SceneManager sceneManager;
     private static final String INITIAL_VIEW = "customerView";
 
@@ -26,7 +26,7 @@ public class GUIApp extends Application {
         }
     };
 
-    public GUIApp(BusinessLogicAPI businessLogicAPI) {
+    public GUIApp(AssemblerDelegate businessLogicAPI) {
         this.businessLogicAPI = businessLogicAPI;
     }
 

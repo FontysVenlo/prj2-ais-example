@@ -1,5 +1,6 @@
-package businessentitiesapi;
+package businessentities;
 
+import java.io.Serializable;
 import java.util.Objects;
 import nl.fontys.sebivenlo.sebiannotations.ID;
 
@@ -7,7 +8,7 @@ import nl.fontys.sebivenlo.sebiannotations.ID;
  *
  * @author "Pieter van den Hombergh {@code p.vandenhombergh@fontys.nl}"
  */
-public class Airport {
+public class Airport implements Serializable {
 
     @ID
     Integer id;

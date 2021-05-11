@@ -4,30 +4,16 @@
 package businesslogic;
 
 import java.time.LocalDate;
-import persistence.CustomerStorageService;
-import businessentitiesapi.Customer;
+import businessentities.Customer;
+import genericdao.dao.DAOFactory;
 import java.util.Optional;
 
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
-public class CustomerManager { 
-    
-    private CustomerStorageService customerStorageService;
-    
-    // No lists of Customer objects here, to avoid sync problems 
+public interface CustomerManager {
 
-    public void setCustomerStorageService( CustomerStorageService customerStorageService ) {
-        this.customerStorageService = customerStorageService;
-    }
-    
-    public Optional<Customer> add(Customer c){
-        return customerStorageService.add(c);
-    }
-
-    public Customer createCustomer( String name, LocalDate dob ) {
-        return new Customer(0, name, dob);
-    }
-    
+    Optional<Customer> add( Customer c );
+    Customer createCustomer( String name, LocalDate dob );
 }

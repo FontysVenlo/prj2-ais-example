@@ -1,6 +1,6 @@
 package fontys.frontend;
 
-import businessentitiesapi.Customer;
+import businessentities.Customer;
 import businesslogic.CustomerManager;
 import java.time.LocalDate;
 import java.util.function.Supplier;

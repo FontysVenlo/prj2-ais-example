@@ -1,5 +1,6 @@
-package businessentitiesapi;
+package businessentities;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import nl.fontys.sebivenlo.sebiannotations.ID;
@@ -8,7 +9,8 @@ import nl.fontys.sebivenlo.sebiannotations.ID;
  *
  * @author "Pieter van den Hombergh {@code p.vandenhombergh@fontys.nl}"
  */
-public class Flight {
+public class Flight implements Serializable {
+
     @ID
     String flightid;
     Airport departure_iata;
@@ -17,7 +19,9 @@ public class Flight {
     LocalDateTime estimatedArival;
     String airplaneModel;
 
-    public Flight( String flightid, Airport departure_iata, Airport arrives_iata, LocalDateTime estimatedDeparture, LocalDateTime estimatedArival ) {
+    public Flight( String flightid, Airport departure_iata, Airport arrives_iata,
+                   LocalDateTime estimatedDeparture,
+                   LocalDateTime estimatedArival ) {
         this.flightid = flightid;
         this.departure_iata = departure_iata;
         this.arrives_iata = arrives_iata;
@@ -49,7 +53,6 @@ public class Flight {
         return airplaneModel;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -74,7 +77,5 @@ public class Flight {
         }
         return true;
     }
-    
-    
-    
+
 }

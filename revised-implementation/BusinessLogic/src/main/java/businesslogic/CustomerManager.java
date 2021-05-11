@@ -16,4 +16,6 @@ public interface CustomerManager {
 
     Optional<Customer> add( Customer c );
     Customer createCustomer( String name, LocalDate dob );
+
+    public int countCustomers();
 }

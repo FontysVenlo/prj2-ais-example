@@ -31,4 +31,10 @@ public class CustomerManagerImpl implements CustomerManager {
         return new Customer( 0, name, dob );
     }
 
+    @Override
+    public int countCustomers() {
+        return persistenceAPI.createDao( Customer.class ).size();
+
+    }
+
 }

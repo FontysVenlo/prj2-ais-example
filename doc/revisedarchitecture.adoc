@@ -35,7 +35,7 @@ image::AISClassDiagram3a.svg[]
 Adding persistence is easy if you have *libraries* that do the work. You implemented one in week 6 and 7 in PRC2.
 Do not add these components into the project, but instead add them as dependencies in the appropriate places in the AIS system.
 
-One advantage of using a library is that you do not have to test it, because you may assume that the provider of the library tested it.+
+One advantage of using a library is that you do not have to test it, because you may assume that the provider of the library tested it. +
 [big]_You did, didn't you?_
 
 .Final, revised class diagram.

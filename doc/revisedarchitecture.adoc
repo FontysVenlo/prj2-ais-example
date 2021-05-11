@@ -1,0 +1,14 @@
+ifdef::env-github[]
+:imagesdir: images/
+endif::[]
+
+== Simplified Architecture with reusable (generic) components.
+
+In the class diagram below we have rearranged the class diagram to
+show the relation of AIS and the already available, because implemented by you in PRC2 week 6 and 7, reusable components.
+
+.revised class diagram
+image::AISClassDiagram2a.svg[]
+
+.The conceptual order of operations.
+image:sequencediagram.svg[]

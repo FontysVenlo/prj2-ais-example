@@ -25,6 +25,12 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sebiplugins</id>
+            <url>https://www.fontysvenlo.org/repository/</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <plugins>
             <plugin>

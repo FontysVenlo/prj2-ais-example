@@ -24,7 +24,7 @@
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
-    </dependencies>
+    </dependencies> 
     <pluginRepositories>
         <pluginRepository>
             <id>sebiplugins</id>

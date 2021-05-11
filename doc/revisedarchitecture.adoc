@@ -16,17 +16,17 @@ we realize that we have sausage Customer and machine CustomerManager. In a serio
 
 Start with Data (entities) and the system (part) that deals with it.
 
-.Start, revised class diagram
+.Start, revised class diagram.
 image::AISClassDiagram1a.svg[]
 
 === Adding GUI, but unconnected.
 
-.GUI and System, revised class diagram
+.GUI and System, revised class diagram.
 image::AISClassDiagram2a.svg[]
 
 === Connect GUI and Business Logic with Assembler
 
-.Assembler, revised class diagram
+.Assembler, revised class diagram.
 image::AISClassDiagram3a.svg[]
 
 
@@ -38,7 +38,7 @@ Do not add these components into the project, but instead add them as dependenci
 One advantage of using a library is that you do not have to test it, because you may assume that the provider of the library tested it.+
 [big]_You did, didn't you?_
 
-.revised class diagram
+.Final, revised class diagram.
 image::AISClassDiagram4a.svg[]
 
 == Summarizing the whole as a sequence of operations.

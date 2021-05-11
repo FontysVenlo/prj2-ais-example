@@ -11,7 +11,7 @@ then
         shift 1;
         # Make sure it does not have the required css
         if ! grep -q 'prefers-color-scheme' "$file"; then
-            # Replace black with current collor and add required css
+            # Replace black with currentColor and add required css
             sed -i '/^<svg/s/black/currentColor/g;s/<\/svg/<style> \*{color:#000\;}@media (prefers-color-scheme: dark){\*{color: #fff\;}}<\/style><\/svg/' "$file"
         fi
     done

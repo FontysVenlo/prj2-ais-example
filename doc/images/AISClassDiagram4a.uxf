@@ -9,7 +9,9 @@
       <w>1278</w>
       <h>477</h>
     </coordinates>
-    <panel_attributes>AirLine Information System</panel_attributes>
+    <panel_attributes>AirLine Information System
+bg=#aaccff
+layer=-1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -32,7 +34,6 @@
       <h>63</h>
     </coordinates>
     <panel_attributes>Customer
-bg=green
 transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
@@ -44,7 +45,8 @@ transparency=0</panel_attributes>
       <w>126</w>
       <h>36</h>
     </coordinates>
-    <panel_attributes>/CustomerManager/</panel_attributes>
+    <panel_attributes>/CustomerManager/
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -62,32 +64,32 @@ transparency=0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>594</x>
-      <y>225</y>
+      <x>567</x>
+      <y>261</y>
       <w>90</w>
-      <h>63</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>GUIApp
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>801</x>
-      <y>261</y>
+      <y>207</y>
       <w>144</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>CustomerController
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>882</x>
-      <y>216</y>
+      <x>801</x>
+      <y>270</y>
       <w>135</w>
       <h>36</h>
     </coordinates>
@@ -98,15 +100,15 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>675</x>
-      <y>252</y>
-      <w>144</w>
-      <h>45</h>
+      <x>648</x>
+      <y>216</y>
+      <w>171</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;1:configures&gt;&gt;
 </panel_attributes>
-    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>170.0;20.0;50.0;20.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -117,7 +119,8 @@ bg=green</panel_attributes>
       <h>45</h>
     </coordinates>
     <panel_attributes>{abstract}
-/AssemblerDelegate/</panel_attributes>
+/AssemblerDelegate/
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -140,7 +143,7 @@ bg=green</panel_attributes>
       <h>45</h>
     </coordinates>
     <panel_attributes>CustomerManagerImp
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -164,19 +167,19 @@ bg=green</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>BusinessFactory
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>522</x>
-      <y>270</y>
-      <w>90</w>
-      <h>171</h>
+      <y>288</y>
+      <w>63</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;170.0;40.0;170.0;40.0;10.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;40.0;150.0;40.0;10.0;50.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -216,15 +219,15 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>693</x>
-      <y>288</y>
+      <y>234</y>
       <w>126</w>
-      <h>144</h>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;requires&gt;&gt;
 fg=#008000
 lw=2</panel_attributes>
-    <additional_attributes>60.0;140.0;10.0;140.0;10.0;10.0;120.0;10.0</additional_attributes>
+    <additional_attributes>60.0;200.0;10.0;200.0;10.0;20.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -236,7 +239,7 @@ lw=2</panel_attributes>
     </coordinates>
     <panel_attributes>{generated}
 CustomerMapper
-bg=green
+
 transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
@@ -267,9 +270,9 @@ transparency=0</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>315</x>
-      <y>180</y>
+      <y>171</y>
       <w>738</w>
-      <h>135</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>GUI</panel_attributes>
     <additional_attributes/>
@@ -294,20 +297,20 @@ transparency=0</panel_attributes>
       <h>54</h>
     </coordinates>
     <panel_attributes>Assembler
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>189</x>
-      <y>234</y>
-      <w>261</w>
-      <h>63</h>
+      <y>261</y>
+      <w>396</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 m1=&lt;&lt;step 3: combine&gt;&gt;</panel_attributes>
-    <additional_attributes>270.0;10.0;100.0;10.0;80.0;50.0;10.0;50.0</additional_attributes>
+    <additional_attributes>420.0;10.0;110.0;10.0;80.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -319,7 +322,7 @@ m1=&lt;&lt;step 3: combine&gt;&gt;</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;.
 m1=&lt;&lt;step 2: configure&gt;&gt;</panel_attributes>
-    <additional_attributes>230.0;300.0;60.0;300.0;60.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>230.0;300.0;70.0;300.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -341,7 +344,8 @@ m1=&lt;&lt;step 2: configure&gt;&gt;</panel_attributes>
       <w>216</w>
       <h>360</h>
     </coordinates>
-    <panel_attributes>entities</panel_attributes>
+    <panel_attributes>entities
+layer=-1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -355,7 +359,8 @@ m1=&lt;&lt;step 2: configure&gt;&gt;</panel_attributes>
     <panel_attributes>template=&lt;E,K&gt;
 /Mapper/
 --
-_- cache:MapperCache_</panel_attributes>
+_- cache:MapperCache_
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -377,7 +382,7 @@ _- cache:MapperCache_</panel_attributes>
       <w>1278</w>
       <h>117</h>
     </coordinates>
-    <panel_attributes>gerericmapper</panel_attributes>
+    <panel_attributes>genericmapper</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -389,7 +394,8 @@ _- cache:MapperCache_</panel_attributes>
       <h>45</h>
     </coordinates>
     <panel_attributes>template=&lt;E,K&gt;
-/DAO/</panel_attributes>
+/DAO/
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -403,7 +409,7 @@ _- cache:MapperCache_</panel_attributes>
     <panel_attributes>PGDAOFactory
 --
 createDao(clz:Class&lt;?&gt;): DAO
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -428,7 +434,8 @@ bg=green</panel_attributes>
     <panel_attributes>{abstract}
 DAOFactory
 --
-createDao(clz:Class&lt;?&gt;): DAO</panel_attributes>
+createDao(clz:Class&lt;?&gt;): DAO
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -441,7 +448,7 @@ createDao(clz:Class&lt;?&gt;): DAO</panel_attributes>
     </coordinates>
     <panel_attributes>template=&lt;E,K&gt;
 PGDAO
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -512,31 +519,31 @@ lw=2</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;.
 m1=&lt;&lt;step 1: configure&gt;&gt;</panel_attributes>
-    <additional_attributes>630.0;600.0;30.0;600.0;30.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>630.0;600.0;60.0;600.0;30.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>675</x>
-      <y>207</y>
-      <w>225</w>
+      <x>648</x>
+      <y>279</y>
+      <w>171</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;2:loads&gt;&gt;
 </panel_attributes>
-    <additional_attributes>230.0;20.0;70.0;20.0;10.0;30.0</additional_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>234</y>
-      <w>108</w>
-      <h>63</h>
+      <x>927</x>
+      <y>216</y>
+      <w>126</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;50.0;100.0;50.0;100.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>20.0;10.0;120.0;10.0;120.0;90.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -559,7 +566,7 @@ m2=&lt;&lt;optional use&gt;&gt;</panel_attributes>
       <h>27</h>
     </coordinates>
     <panel_attributes>MapperCache
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -591,23 +598,23 @@ lw=2</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>936</x>
-      <y>279</y>
+      <y>225</y>
       <w>225</w>
-      <h>81</h>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>230.0;70.0;160.0;70.0;110.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>230.0;130.0;160.0;130.0;80.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>936</x>
-      <y>288</y>
+      <y>234</y>
       <w>270</w>
-      <h>162</h>
+      <h>207</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>280.0;160.0;180.0;160.0;100.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>280.0;210.0;180.0;210.0;60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -619,7 +626,7 @@ lw=2</panel_attributes>
     </coordinates>
     <panel_attributes>{generated}
 OtherMappers
-bg=green
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -632,30 +639,41 @@ bg=green
       <h>63</h>
     </coordinates>
     <panel_attributes>OtherEntities
-bg=green</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>432</x>
-      <y>225</y>
+      <x>540</x>
+      <y>198</y>
       <w>117</w>
       <h>27</h>
     </coordinates>
-    <panel_attributes>StageManager
+    <panel_attributes>/SceneManager/
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>225</y>
-      <w>72</w>
-      <h>27</h>
+      <x>648</x>
+      <y>198</y>
+      <w>171</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>216</y>
+      <w>27</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>

@@ -2,13 +2,46 @@ ifdef::env-github[]
 :imagesdir: images/
 endif::[]
 
-== Simplified Architecture with reusable (generic) components.
+== Starting from scratch, again.
 
-In the class diagram below we have rearranged the class diagram to
-show the relation of AIS and the already available, because implemented by you in PRC2 week 6 and 7, reusable components.
+We show what you can get after some experimenting. We present it as if it was what
+we had from the start, be in actuality we arrive here by applying refactoring on the architecture.
+
+In all diagrams below, the [blue]`Customer` class is the stand in for all possible entities, so Flight, Airport, Ticket etc.
+
+Looking at the intermezzo in https://prc2.fontysvenlo.org/2021/week07.html#_currywurst_is_not_made_of_steel_and_vice_versa[Sausage and Machines ^],
+we realize that we have sausage Customer and machine CustomerManager. In a serious conversation you would use entities and System as the official terms.
+
+=== The start, Business and data
+
+Start with Data (entities) and the system (part) that deals with it.
+
+.Start, revised class diagram
+image::AISClassDiagram1a.svg[]
+
+=== Adding GUI, but unconnected.
+
+.GUI and System, revised class diagram
+image::AISClassDiagram2a.svg[]
+
+=== Connect GUI and Business Logic with Assembler
+
+.Assembler, revised class diagram
+image::AISClassDiagram3a.svg[]
+
+
+=== Adding persistence, which are now external but reusable components.
+
+Adding persistence is easy if you have *libraries* that do the work. You implemented one in week 6 and 7 in PRC2.
+Do not add these components into the project, but instead add them as dependencies in the appropriate places in the AIS system.
+
+One advantage of using a library is that you do not have to test it, because you may assume that the provider of the library tested it.+
+[big]_You did, didn't you?_
 
 .revised class diagram
-image::AISClassDiagram2a.svg[]
+image::AISClassDiagram4a.svg[]
+
+== Summarizing the whole as a sequence of operations.
 
 .The conceptual order of operations.
 image:sequencediagram.svg[]

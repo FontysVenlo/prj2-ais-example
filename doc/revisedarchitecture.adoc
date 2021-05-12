@@ -17,7 +17,7 @@ we realize that we have sausage Customer and machine CustomerManager. In a serio
 Start with Data (entities) and the system (part) that deals with it.
 
 .Start, revised class diagram.
-image::AISClassDiagram1a.svg[]
+image::AISClassDiagram1a.svg[opts=inline]
 
 === Adding GUI, but unconnected.
 

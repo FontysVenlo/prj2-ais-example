@@ -12,7 +12,7 @@ then
         # Make sure it does not have the required css
         if ! grep -q 'prefers-color-scheme' "$file"; then
             # Replace black with currentColor and add required css
-            sed -i 's/<\/svg/<style>@media (prefers-color-scheme: dark){svg{filter: invert(100)\;}}<\/style><\/svg/' "$file";
+            sed -i '' 's/<\/svg/<style>@media (prefers-color-scheme: dark){svg{filter: invert(100)\;}}<\/style><\/svg/' "$file";
             #/^<svg/s/black/currentColor/g;
         fi
     done

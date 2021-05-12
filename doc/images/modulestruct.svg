@@ -389,5 +389,5 @@
       >4</text
     ></g
   ></g
-></svg
+><style>@media (prefers-color-scheme: dark){svg{filter: invert(100);}}</style></svg
 >

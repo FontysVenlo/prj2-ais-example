@@ -638,5 +638,5 @@
       /><path fill="none" stroke-miterlimit="10" stroke-dasharray="none" d="M58.7417 14 L70 20.5 L58.7417 27" clip-path="url(#clipPath49)" stroke-linecap="square"
     /></g
   ></g
-></svg
+><style>@media (prefers-color-scheme: dark){svg{filter: invert(100);}}</style></svg
 >

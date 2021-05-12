@@ -615,5 +615,5 @@
       /><path fill="none" d="M348.7417 14 L360 20.5 L348.7417 27" clip-path="url(#clipPath47)"
     /></g
   ></g
-></svg
+><style>@media (prefers-color-scheme: dark){svg{filter: invert(100);}}</style></svg
 >

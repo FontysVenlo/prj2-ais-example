@@ -11,7 +11,8 @@
     </coordinates>
     <panel_attributes>AirLine Information System
 bg=#aaccff
-layer=-1</panel_attributes>
+layer=-1
+transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -34,7 +35,8 @@ layer=-1</panel_attributes>
       <h>63</h>
     </coordinates>
     <panel_attributes>Customer
-transparency=0</panel_attributes>
+transparency=0
+fg=#000000</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -239,7 +241,7 @@ lw=2</panel_attributes>
     </coordinates>
     <panel_attributes>{generated}
 CustomerMapper
-
+fg=#000000
 transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
@@ -639,6 +641,7 @@ OtherMappers
       <h>63</h>
     </coordinates>
     <panel_attributes>OtherEntities
+fg=#000000
 </panel_attributes>
     <additional_attributes/>
   </element>

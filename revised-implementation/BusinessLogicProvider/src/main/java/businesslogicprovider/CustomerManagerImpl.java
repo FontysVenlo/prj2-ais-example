@@ -7,7 +7,9 @@ import java.time.LocalDate;
 import businessentities.Customer;
 import businesslogic.CustomerManager;
 import genericdao.dao.DAOFactory;
+import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,12 +30,24 @@ public class CustomerManagerImpl implements CustomerManager {
     }
 
     public Customer createCustomer( String name, LocalDate dob ) {
-        return new Customer( 0, name, dob,null );
+        return new Customer( 0, name, dob, null );
     }
 
     @Override
     public int countCustomers() {
         return persistenceAPI.createDao( Customer.class ).size();
+
+    }
+    private static final Logger logger = Logger.getLogger(
+            CustomerManagerImpl.class.getName() );
+
+    @Override
+    public Customer apply( Map<String, String> values ) {
+        System.out.println( "apply " );
+        System.out.println( "values = " + values );
+        return add( createCustomer( values.get( "customerName" ), LocalDate
+                                    .parse( values.get( "dateOfBirth" ) ) ) )
+                .get();
 
     }
 

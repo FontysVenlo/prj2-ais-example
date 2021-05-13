@@ -10,6 +10,9 @@
     <artifactId>Assembler</artifactId>
     <packaging>jar</packaging>
     <name>Assembler</name>
+    <properties>
+        <exec.mainClass>assembler.Main</exec.mainClass>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>fontys</groupId>

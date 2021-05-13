@@ -19,6 +19,7 @@
         <surefire.opens>
             --add-opens GUI_module/fontys.frontend=ALL-UNNAMED 
             --add-opens javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+            --add-reads java.logging=GUI_module
         </surefire.opens>
     </properties>
     <dependencies>
@@ -62,6 +63,11 @@
             <groupId>org.testfx</groupId>
             <artifactId>testfx-core</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>nl.homberghp</groupId>
+            <artifactId>fxuiscraper</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

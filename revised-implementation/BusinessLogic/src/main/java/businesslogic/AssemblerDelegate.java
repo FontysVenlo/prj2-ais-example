@@ -3,12 +3,14 @@
  */
 package businesslogic;
 
-import genericdao.dao.DAOFactory;
+import businessentities.Customer;
+import java.util.Map;
+import java.util.function.Function;
 
 /**
  *
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
 public interface AssemblerDelegate {
-    public abstract CustomerManager getCustomerManager();
+    public abstract Function<Map<String,String>,Customer> getCustomerManager();
 }

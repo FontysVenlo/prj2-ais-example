@@ -142,7 +142,7 @@ bg=green</panel_attributes>
       <x>738</x>
       <y>531</y>
       <w>153</w>
-      <h>45</h>
+      <h>54</h>
     </coordinates>
     <panel_attributes>CustomerManagerImp
 </panel_attributes>
@@ -225,7 +225,7 @@ bg=green</panel_attributes>
       <w>126</w>
       <h>198</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
+    <panel_attributes>lt=&lt;-
 &lt;&lt;requires&gt;&gt;
 fg=#008000
 lw=2</panel_attributes>
@@ -282,10 +282,10 @@ transparency=0</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>63</x>
-      <y>783</y>
-      <w>1278</w>
-      <h>117</h>
+      <x>117</x>
+      <y>747</y>
+      <w>1188</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>pgdao</panel_attributes>
     <additional_attributes/>
@@ -354,11 +354,12 @@ layer=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1098</x>
-      <y>54</y>
+      <y>45</y>
       <w>198</w>
-      <h>63</h>
+      <h>81</h>
     </coordinates>
     <panel_attributes>template=&lt;E,K&gt;
+{abstract}
 /Mapper/
 --
 _- cache:MapperCache_
@@ -369,19 +370,19 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1197</x>
-      <y>108</y>
+      <y>117</y>
       <w>27</w>
-      <h>234</h>
+      <h>225</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>63</x>
-      <y>9</y>
-      <w>1278</w>
+      <x>630</x>
+      <y>18</y>
+      <w>711</w>
       <h>117</h>
     </coordinates>
     <panel_attributes>genericmapper</panel_attributes>
@@ -404,7 +405,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>756</x>
-      <y>819</y>
+      <y>783</y>
       <w>216</w>
       <h>54</h>
     </coordinates>
@@ -420,7 +421,7 @@ createDao(clz:Class&lt;?&gt;): DAO
       <x>63</x>
       <y>630</y>
       <w>1278</w>
-      <h>135</h>
+      <h>243</h>
     </coordinates>
     <panel_attributes>persistence(genericdao)</panel_attributes>
     <additional_attributes/>
@@ -444,7 +445,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1179</x>
-      <y>810</y>
+      <y>774</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -473,32 +474,34 @@ lw=2</panel_attributes>
       <x>864</x>
       <y>729</y>
       <w>27</w>
-      <h>108</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>963</x>
-      <y>828</y>
+      <y>783</y>
       <w>234</w>
-      <h>27</h>
+      <h>36</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>240.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;provides&gt;&gt;</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>999</x>
-      <y>693</y>
+      <y>702</y>
       <w>189</w>
-      <h>27</h>
+      <h>54</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;.
+m2=&lt;&lt;creates&gt;&gt;</panel_attributes>
+    <additional_attributes>190.0;10.0;150.0;10.0;120.0;30.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -506,10 +509,10 @@ lw=2</panel_attributes>
       <x>1197</x>
       <y>711</y>
       <w>27</w>
-      <h>126</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -517,11 +520,11 @@ lw=2</panel_attributes>
       <x>189</x>
       <y>297</y>
       <w>585</w>
-      <h>567</h>
+      <h>531</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 m1=&lt;&lt;step 1: configure&gt;&gt;</panel_attributes>
-    <additional_attributes>630.0;600.0;60.0;600.0;30.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>630.0;560.0;40.0;560.0;30.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -560,29 +563,6 @@ m2=&lt;&lt;optional use&gt;&gt;</panel_attributes>
     <additional_attributes>290.0;10.0;220.0;10.0;160.0;240.0;10.0;240.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>819</x>
-      <y>63</y>
-      <w>117</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>MapperCache
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>927</x>
-      <y>63</y>
-      <w>189</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>684</x>
@@ -590,7 +570,7 @@ m2=&lt;&lt;optional use&gt;&gt;</panel_attributes>
       <w>90</w>
       <h>180</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
 &lt;&lt;requires&gt;&gt;
 fg=#008000
 lw=2</panel_attributes>
@@ -678,5 +658,85 @@ bg=green</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>567</y>
+      <w>306</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+m2=&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>320.0;140.0;230.0;140.0;130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>54</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>FieldPair</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>63</y>
+      <w>180</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>99</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Constants</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>81</y>
+      <w>180</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;30.0;70.0;30.0;130.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>81</y>
+      <w>153</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.
+template file
+CodeTemplate-java.txt</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>90</y>
+      <w>81</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;20.0</additional_attributes>
   </element>
 </diagram>

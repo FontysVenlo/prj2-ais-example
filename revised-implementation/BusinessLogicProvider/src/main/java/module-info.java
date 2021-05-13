@@ -1,4 +1,6 @@
 module businesslogicprovider_module {
+    requires java.logging;
+    requires java.sql;
     requires transitive businessentities_module;
     requires transitive businesslogic_module;
     requires transitive nl.fontys.sebivenlo.genericdao;

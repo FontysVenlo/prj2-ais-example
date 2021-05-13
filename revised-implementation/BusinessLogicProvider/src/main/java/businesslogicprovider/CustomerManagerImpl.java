@@ -28,7 +28,7 @@ public class CustomerManagerImpl implements CustomerManager {
     }
 
     public Customer createCustomer( String name, LocalDate dob ) {
-        return new Customer( 0, name, dob );
+        return new Customer( 0, name, dob,null );
     }
 
     @Override

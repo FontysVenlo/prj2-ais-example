@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import static java.time.LocalDate.of;
 import java.time.Month;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.logging.Logger;
 import javafx.stage.Stage;
@@ -46,12 +47,12 @@ public class GUIAppTest {
         }
     }
 
-    Function<Map<String,String>,Customer> customerManager;
+    CustomerManager customerManager;
 
     @Start
     void start( Stage stage ) throws IOException {
 
-        customerManager = mock( Function.class );
+        customerManager = mock( CustomerManager.class );
         AssemblerDelegate assemblerDelegate = mock( AssemblerDelegate.class );
         when( assemblerDelegate.getCustomerManager() ).thenReturn(
                 customerManager );
@@ -60,13 +61,14 @@ public class GUIAppTest {
     }
     private static final Logger logger = Logger.getLogger( GUIAppTest.class
             .getName() );
+
     //@Disabled("Think TDD")
     @Test
     void testAddCustomer( FxRobot robot ) {
 
-        when( customerManager.apply( anyMap() ) )
-                .thenReturn( new Customer( 0, "Elon Musk",
-                                           of( 1971, Month.JUNE, 28 ) ) );
+        when( customerManager.addCustomer( anyMap() ) )
+                .thenReturn( Optional.of( new Customer( 0, "Elon Musk",
+                                                        of( 1971, Month.JUNE, 28 ) ) ) );
 
         ArgumentCaptor<Map<String, String>> inputCaptor = ArgumentCaptor
                 .forClass( Map.class );
@@ -74,11 +76,11 @@ public class GUIAppTest {
         robot
                 .clickOn( "#customerName" )
                 .write( "Elon Musk" )
-                .clickOn( "#dateOfBirth" ) 
+                .clickOn( "#dateOfBirth" )
                 .write( "1971-06-28" )
                 .clickOn( "#storeCustomer" );
 
-        verify( customerManager ).apply( inputCaptor.capture() );
+        verify( customerManager ).addCustomer( inputCaptor.capture() );
         Map<String, String> capture = inputCaptor.getValue();
         System.out.println( "capture = " + capture );
         assertSoftly( softly -> {

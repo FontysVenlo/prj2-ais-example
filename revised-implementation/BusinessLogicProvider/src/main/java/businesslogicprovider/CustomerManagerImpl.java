@@ -24,9 +24,9 @@ public class CustomerManagerImpl implements CustomerManager {
         this.persistenceAPI = persistenceAPI;
     }
 
-    public Optional<Customer> add( Customer c ) {
+    public Optional<Customer> addCustomer( Map<String, String> input ) {
         var cdao = persistenceAPI.createDao( Customer.class );
-        return cdao.save( c );
+        return cdao.save( fromMap( input ) );
     }
 
     public Customer createCustomer( String name, LocalDate dob ) {
@@ -41,13 +41,11 @@ public class CustomerManagerImpl implements CustomerManager {
     private static final Logger logger = Logger.getLogger(
             CustomerManagerImpl.class.getName() );
 
-    @Override
-    public Customer apply( Map<String, String> values ) {
+    Customer fromMap( Map<String, String> values ) {
         System.out.println( "apply " );
         System.out.println( "values = " + values );
-        return add( createCustomer( values.get( "customerName" ), LocalDate
-                                    .parse( values.get( "dateOfBirth" ) ) ) )
-                .get();
+        return createCustomer( values.get( "customerName" ), LocalDate
+                               .parse( values.get( "dateOfBirth" ) ) );
 
     }
 

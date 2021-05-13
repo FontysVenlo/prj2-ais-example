@@ -1,6 +1,7 @@
 package fontys.frontend;
 
 import businessentities.Customer;
+import businesslogic.CustomerManager;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -22,10 +23,10 @@ public class CustomerController implements FXUIScraper {
     
     Customer customer;
     private final Supplier<SceneManager> sceneManagerSupplier;
-    private final Function<Map<String, String>, Customer> customerManager;
+    private final CustomerManager customerManager;
     
     public CustomerController( Supplier<SceneManager> sceneManagerSupplier,
-                               Function<Map<String, String>, Customer> customerManager ) {
+                               CustomerManager customerManager ) {
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.customerManager = customerManager;
     }
@@ -34,6 +35,7 @@ public class CustomerController implements FXUIScraper {
     void switchToSecondary() {
         sceneManagerSupplier.get().changeScene( "secondary" );
     }
+    
     final Predicate<Node> pred = n -> ( null != n.getId() )
             && ( n instanceof TextInputControl );
     
@@ -43,7 +45,7 @@ public class CustomerController implements FXUIScraper {
         Map<String, String> keyValues = this.getKeyValues( pred );
         keyValues.put( "_command", "save" );
         keyValues.keySet().forEach( System.out::println );
-        customer = customerManager.apply( keyValues );
+        customerManager.addCustomer(keyValues ).get();
     }
     
     @Override

@@ -1,11 +1,20 @@
 package fontys.frontend;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -29,12 +38,13 @@ public class SceneManager {
     }
 
     private Parent loadScene(String fxml) {
-        FXMLLoader fxmlLoader = new FXMLLoader(GUIApp.class.getResource(fxml + ".fxml"));
+        var fxmlResource = GUIApp.class.getResource(fxml + ".fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(fxmlResource);
         fxmlLoader.setControllerFactory(controllerFactory);
         try {
             return fxmlLoader.load();
         } catch (IOException ex) {
-            return null;
+            return createErrorPane(fxmlResource, ex);
         }
     }
 
@@ -43,6 +53,47 @@ public class SceneManager {
         stage.setWidth( width );
         stage.setHeight( height );
         stage.show();
+    }
+
+    Parent createErrorPane(URL fxmlResource, IOException ex) {
+        var parent =  new VBox();
+        var titleLabel = new Label("Unable to load fxml");
+        titleLabel.setTextFill(Paint.valueOf("#FF0000"));
+        titleLabel.setFont(new Font(titleLabel.getFont().getName(), 32));
+        parent.getChildren().add(titleLabel);
+        
+        var loader = GUIApp.class.getClassLoader();
+        var loaderName = loader.getName();
+        
+        addRow(parent, "File", fxmlResource.toString());
+        addRow(parent, "Loader name", loaderName);
+        
+        var cause = ex.getCause().getMessage();
+        addRow(parent, "Cause", cause);
+        
+        var stackTrace = Stream.of(ex.getStackTrace()).limit(10).map(st -> st.toString()).collect(Collectors.joining("\n"));
+        var stLabel = new Label("Stacktrace:");
+        stLabel.setStyle("-fx-font-weight: bold;");
+        parent.getChildren().add(stLabel);
+        parent.getChildren().add(new TextArea(stackTrace));
+        return parent;
+    }
+    
+    void addRow(VBox parent, String label, String text){
+        var row =  new HBox();
+        
+        var nameLabel = new Label(label + ": ");
+        nameLabel.setStyle("-fx-font-weight: bold;");
+        
+        var textLabel = new Label(text);
+        textLabel.setWrapText(true);
+        
+        row.getChildren().addAll(
+                nameLabel,
+                textLabel
+        );
+        
+        parent.getChildren().add(row);
     }
 
 }

@@ -68,8 +68,8 @@ public class SceneManager {
         addRow(parent, "File", fxmlResource.toString());
         addRow(parent, "Loader name", loaderName);
         
-        var cause = ex.getCause().getMessage();
-        addRow(parent, "Cause", cause);
+        addRow(parent, "Cause class", ex.getCause().getClass().toString());
+        addRow(parent, "Cause message", ex.getCause().getMessage());
         
         var stackTrace = Stream.of(ex.getStackTrace()).limit(10).map(st -> st.toString()).collect(Collectors.joining("\n"));
         var stLabel = new Label("Stacktrace:");

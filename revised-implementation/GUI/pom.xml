@@ -16,6 +16,10 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <javafx.version>13</javafx.version>
+        <surefire.opens>
+            --add-opens GUI_module/fontys.frontend=ALL-UNNAMED 
+            --add-opens javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+        </surefire.opens>
     </properties>
     <dependencies>
         <dependency>
@@ -60,25 +64,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId> 
-                <configuration>
-                    <!-- add add-opens lines for **ALL** packages in your module that are tested.
-                        For testing it is fine to open your packages for the whole world, which includes
-                        e.g. junit, assertj, mockito, and jacoco, to name a few.
-                        Also leave ${argLine} because it is set/used by the coverage plugin.
-                    -->
-                    <argLine> 
-                        ${argLine}
-                        --add-opens GUI_module/fontys.frontend=ALL-UNNAMED 
-                        --add-opens javafx.graphics/com.sun.javafx.application.ParametersImpl=ALL-UNNAMED
-                        --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
-                    </argLine>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    
 </project>

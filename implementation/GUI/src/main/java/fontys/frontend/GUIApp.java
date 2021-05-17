@@ -21,6 +21,8 @@ public class GUIApp extends Application {
                 return new CustomerController(this::getSceneManager, businessLogicAPI.getCustomerManager());
             case "fontys.frontend.SecondaryController":
                 return new SecondaryController(this::getSceneManager);
+            case "fontys.frontend.ErrorController":
+                return new ErrorController(this::getSceneManager);
             default:
                 return null;
         }

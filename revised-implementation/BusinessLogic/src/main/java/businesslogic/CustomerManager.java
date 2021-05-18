@@ -3,19 +3,18 @@
  */
 package businesslogic;
 
-import java.time.LocalDate;
 import businessentities.Customer;
-import genericdao.dao.DAOFactory;
+import java.util.Map;
 import java.util.Optional;
 
 /**
- *
+ * ConsumerMananager accepting map of key, value pairs.
+ * 
  * @author Richard van den Ham {@code r.vandenham@fontys.nl}
  */
 public interface CustomerManager {
 
-    Optional<Customer> add( Customer c );
-    Customer createCustomer( String name, LocalDate dob );
+    Optional<Customer> addCustomer( Map<String,String> keyValues );
 
     public int countCustomers();
 }

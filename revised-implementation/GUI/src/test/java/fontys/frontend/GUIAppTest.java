@@ -6,7 +6,12 @@ import businesslogic.CustomerManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import static java.time.LocalDate.of;
 import java.time.Month;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.logging.Logger;
 import javafx.stage.Stage;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 import org.junit.jupiter.api.MethodOrderer;
@@ -14,8 +19,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.anyMap;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -50,24 +54,25 @@ public class GUIAppTest {
 
         customerManager = mock( CustomerManager.class );
         AssemblerDelegate assemblerDelegate = mock( AssemblerDelegate.class );
-        when( assemblerDelegate.getCustomerManager() ).thenReturn( 
+        when( assemblerDelegate.getCustomerManager() ).thenReturn(
                 customerManager );
 
         new GUIApp( assemblerDelegate ).init( false ).start( stage );
     }
+    private static final Logger logger = Logger.getLogger( GUIAppTest.class
+            .getName() );
 
     //@Disabled("Think TDD")
     @Test
     void testAddCustomer( FxRobot robot ) {
 
-        when( customerManager.createCustomer( anyString(), any() ) )
-                .thenReturn( new Customer( 0, "Elon Musk", LocalDate.of( 1971,
-                                                                         Month.JUNE,
-                                                                         28 ) ) );
+        when( customerManager.addCustomer( anyMap() ) )
+                .thenReturn( Optional.of( new Customer( 0, "Elon Musk",
+                                                        of( 1971, Month.JUNE, 28 ) ) ) );
 
-        ArgumentCaptor<Customer> customerCaptor = ArgumentCaptor.forClass(
-                Customer.class );
-
+        ArgumentCaptor<Map<String, String>> inputCaptor = ArgumentCaptor
+                .forClass( Map.class );
+        logger.info( () -> "inputCaptor = " + inputCaptor );
         robot
                 .clickOn( "#customerName" )
                 .write( "Elon Musk" )
@@ -75,13 +80,14 @@ public class GUIAppTest {
                 .write( "1971-06-28" )
                 .clickOn( "#storeCustomer" );
 
-        verify( customerManager ).add( customerCaptor.capture() );
-
+        verify( customerManager ).addCustomer( inputCaptor.capture() );
+        Map<String, String> capture = inputCaptor.getValue();
+        System.out.println( "capture = " + capture );
         assertSoftly( softly -> {
-            softly.assertThat( customerCaptor.getValue().getName() ).isEqualTo(
+            softly.assertThat( capture.get( "customerName" ) ).isEqualTo(
                     "Elon Musk" );
-            softly.assertThat( customerCaptor.getValue().getDateOfBirth() )
-                    .isEqualTo( LocalDate.of( 1971, Month.JUNE, 28 ) );
+            softly.assertThat( capture.get( "dateOfBirth" ) )
+                    .isEqualTo( LocalDate.of( 1971, Month.JUNE, 28 ).toString() );
         } );
     }
 

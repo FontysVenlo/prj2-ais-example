@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="225.0" prefWidth="402.0" spacing="20.0" xmlns="http://javafx.com/javafx/15.0.1" 
+<VBox alignment="CENTER" fx:id="root" prefHeight="225.0" prefWidth="402.0" spacing="20.0" xmlns="http://javafx.com/javafx/15.0.1" 
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="fontys.frontend.CustomerController">
    <children>
       <Label text="Customer name:" />

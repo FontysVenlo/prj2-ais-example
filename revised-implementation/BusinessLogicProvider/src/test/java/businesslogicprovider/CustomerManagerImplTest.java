@@ -5,6 +5,7 @@ import businesslogic.CustomerManager;
 import genericdao.pgdao.PGDAOFactory;
 import genericdao.pgdao.PGJDBCUtils;
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
 import org.junit.jupiter.api.Test;
@@ -32,12 +33,15 @@ public class CustomerManagerImplTest {
     //@Disabled("Think TDD")
     @Test
     void tSaveElon() {
+        Map<String, String> elonAsMap = Map.of( "customerNname", "Elon Musk",
+                                                "dateOfBirth", "1971-06-28" );
         Customer elon = new Customer( null, "Elon Musk", LocalDate.of( 1971, 06,
-                                                                       28 ),null );
+                                                                       28 ),
+                                      null );
         CustomerManager man = new CustomerManagerImpl( daof );
         try {
             int countCustomers = man.countCustomers();
-            man.add( elon );
+            man.addCustomer( elonAsMap );
             assertThat( man.countCustomers() ).isGreaterThan( countCustomers );
         } catch ( Exception ex ) {
             ex.printStackTrace();//logger.severe(() -> "ex = " + ex );

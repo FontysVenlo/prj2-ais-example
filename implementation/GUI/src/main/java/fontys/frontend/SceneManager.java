@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +45,9 @@ public class SceneManager {
         fxmlLoader.setControllerFactory(controllerFactory);
         try {
             return fxmlLoader.load();
-        } catch (IOException ex) {
+        } catch (IOException ex) {  
+            Logger.getLogger(SceneManager.class.getName()).log(Level.SEVERE, "Unable to load fxml", ex);
+            Logger.getLogger(SceneManager.class.getName()).log(Level.SEVERE, "Unable to load fxml", ex.getCause());
             return createErrorPane(fxmlResource, ex);
         }
     }

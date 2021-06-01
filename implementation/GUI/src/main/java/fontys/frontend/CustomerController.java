@@ -3,6 +3,7 @@ package fontys.frontend;
 import businessentitiesapi.Customer;
 import businesslogic.CustomerManager;
 import java.time.LocalDate;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -22,7 +23,9 @@ public class CustomerController {
 
     @FXML
     private void switchToSecondary() {
-        sceneManagerSupplier.get().changeScene( "secondary" );
+        Consumer<SecondaryController> consumer =
+                (c) -> c.setPreviousView("Customer");
+        sceneManagerSupplier.get().changeScene( "secondary", consumer );
     }
 
     @FXML

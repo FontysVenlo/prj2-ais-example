@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -28,23 +29,45 @@ public class SceneManager {
 
     private final Scene scene;
     private final Callback<Class<?>, Object> controllerFactory;
-    private final Map< String, Parent> views = new HashMap<>();
     
     public SceneManager(Callback<Class<?>, Object> controllerFactory, String initialView ) {
         this.controllerFactory = controllerFactory;
-        scene = new Scene( loadScene( initialView ) ); 
+        scene = new Scene( loadScene( initialView, null) ); 
     }
-
+    
+    /**
+     * Change scene to the new view
+     * @param view The name of the view to change the scene to
+     */
     public final void changeScene(String view) {
-        scene.setRoot( views.computeIfAbsent(view, v -> loadScene(v)) );
+        scene.setRoot(loadScene(view, null));
+    }    
+    
+    /**
+     * Change scene to the new view
+     * And consume the controller belonging to the view
+     * Can be used to interact with the controller,
+     * before the scene is changed
+     * @param <T> The Controller belonging to the view
+     * @param view The view to change the scene to
+     * @param consumer Consumer that interacts with the Controller
+     */
+    public final <T> void changeScene(String view, Consumer<T> consumer) {
+        scene.setRoot(loadScene(view, consumer));
     }
 
-    private Parent loadScene(String fxml) {
+    private <T> Parent loadScene(String fxml, Consumer<T> consumer) {
         var fxmlResource = GUIApp.class.getResource(fxml + ".fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlResource);
         fxmlLoader.setControllerFactory(controllerFactory);
+        
         try {
-            return fxmlLoader.load();
+            Parent parent = fxmlLoader.load();
+            if(consumer != null){
+                var controller = (T)fxmlLoader.getController();
+                consumer.accept(controller);
+            }
+            return parent;
         } catch (IOException ex) {  
             Logger.getLogger(SceneManager.class.getName()).log(Level.SEVERE, "Unable to load fxml", ex);
             Logger.getLogger(SceneManager.class.getName()).log(Level.SEVERE, "Unable to load fxml", ex.getCause());

@@ -28,7 +28,6 @@ public class SceneManager {
 
     private final Scene scene;
     private final Callback<Class<?>, Object> controllerFactory;
-    private final Map< String, Parent> views = new HashMap<>();
     
     public SceneManager(Callback<Class<?>, Object> controllerFactory, String initialView ) {
         this.controllerFactory = controllerFactory;
@@ -36,7 +35,7 @@ public class SceneManager {
     }
 
     public final void changeScene(String view) {
-        scene.setRoot( views.computeIfAbsent(view, v -> loadScene(v)) );
+        scene.setRoot( loadScene(view) );
     }
 
     private Parent loadScene(String fxml) {
